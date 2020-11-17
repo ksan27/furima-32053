@@ -24,13 +24,13 @@
 |--------------------|---------|-------------|
 | product_name       | text    | null: false |
 | explanation        | text    | null: false |
-| category           | integer | null: false |
-| status             | integer | null: false |
-| shipping_fee       | integer | null: false |
-| shipping_prefecture| integer | null: false |
-| shipping_days      | integer | null: false |
-| price              | string  | null: false |
-| user               | references | null: false, foreign_key: true|
+| category_id        | integer | null: false |
+| status_id          | integer | null: false |
+| shipping_fee_id    | integer | null: false |
+| shipping_prefecture_id| integer    | null: false |
+| shipping_days_id      | integer    | null: false |
+| price                 | integer    | null: false |
+| user                  | references | null: false, foreign_key: true|
 
 ### Association
 
@@ -43,7 +43,6 @@
 |---------------|------------|-------------------------------|
 | item          | references | null: false, foreign_key: true|
 | user          | references | null: false, foreign_key: true|
-| address       | references | null: false|
 
 ### Association
 
@@ -55,9 +54,9 @@
 
 |Column                |Type        |Options                        |
 |----------------------|------------|-------------------------------|
-| purchases            | references | null: false, foreign_key: true|
+| purchase             | references | null: false, foreign_key: true|
 | postal_code          | string     | null: false |
-| prefecture           | string     | null: false |
+| prefecture_id        | integer    | null: false |
 | city                 | string     | null: false |
 | house_number         | string     | null: false |
 | building_name        | string     |             |
