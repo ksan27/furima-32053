@@ -28,27 +28,27 @@ RSpec.describe Item, type: :model do
     it 'category_idがid1の時では登録できない' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
     it 'status_idがid1の時では登録できない' do
       @item.status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status must be other than 1")
+      expect(@item.errors.full_messages).to include('Status must be other than 1')
     end
     it 'shipping_fee_idがid1の時では登録できない' do
       @item.shipping_fee_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping fee must be other than 1")
+      expect(@item.errors.full_messages).to include('Shipping fee must be other than 1')
     end
     it 'shipping_prefecture_idがid1の時では登録できない' do
       @item.shipping_prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping prefecture must be other than 1")
+      expect(@item.errors.full_messages).to include('Shipping prefecture must be other than 1')
     end
     it 'shipping_day_idがid1の時では登録できない' do
       @item.shipping_day_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping day must be other than 1")
+      expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
     end
     it 'priceが空では登録できない' do
       @item.price = nil
@@ -61,12 +61,12 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
     it 'priceが9999999円以上だと登録できない' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
     it 'priceが全角数字だと登録できない' do
-      @item.price = "１２３４５"
+      @item.price = '１２３４５'
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
     end
