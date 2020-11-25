@@ -20,7 +20,7 @@ RSpec.describe ItemPurchase, type: :model do
   it 'prefecture_idがid1の時では保存できない' do
     @item_purchase.prefecture_id = 1
     @item_purchase.valid?
-    expect(@item_purchase.errors.full_messages).to include("Prefecture Select")
+    expect(@item_purchase.errors.full_messages).to include('Prefecture Select')
   end
   it 'cityが空では保存できない' do
     @item_purchase.city = nil
@@ -38,32 +38,32 @@ RSpec.describe ItemPurchase, type: :model do
     expect(@item_purchase.errors.full_messages).to include("Phone number can't be blank")
   end
   it 'phone_numberが11桁ではない場合保存できない' do
-    @item_purchase.phone_number = "080"
+    @item_purchase.phone_number = '080'
     @item_purchase.valid?
-    expect(@item_purchase.errors.full_messages).to include("Phone number Input only number")
+    expect(@item_purchase.errors.full_messages).to include('Phone number Input only number')
   end
   it 'phone_numberが全角数字だと保存できない' do
-    @item_purchase.phone_number = "０８０１２３４５６７８"
+    @item_purchase.phone_number = '０８０１２３４５６７８'
     @item_purchase.valid?
-    expect(@item_purchase.errors.full_messages).to include("Phone number Input only number")
+    expect(@item_purchase.errors.full_messages).to include('Phone number Input only number')
   end
   it 'postal_codeにハイフンが入っていない場合保存できない' do
-    @item_purchase.postal_code = "1234567"
+    @item_purchase.postal_code = '1234567'
     @item_purchase.valid?
-    expect(@item_purchase.errors.full_messages).to include("Postal code Input correctly")
+    expect(@item_purchase.errors.full_messages).to include('Postal code Input correctly')
   end
   it 'postal_codeが3桁-4桁の数字ではない場合保存できない' do
-    @item_purchase.postal_code = "1234-567"
+    @item_purchase.postal_code = '1234-567'
     @item_purchase.valid?
-    expect(@item_purchase.errors.full_messages).to include("Postal code Input correctly")
+    expect(@item_purchase.errors.full_messages).to include('Postal code Input correctly')
   end
   it 'postal_codeが全角数字だとと保存できない' do
-    @item_purchase.postal_code = "１２３ー４５６７"
+    @item_purchase.postal_code = '１２３ー４５６７'
     @item_purchase.valid?
-    expect(@item_purchase.errors.full_messages).to include("Postal code Input correctly")
+    expect(@item_purchase.errors.full_messages).to include('Postal code Input correctly')
   end
-  
-  it "tokenが空では保存できない" do
+
+  it 'tokenが空では保存できない' do
     @item_purchase.token = nil
     @item_purchase.valid?
     expect(@item_purchase.errors.full_messages).to include("Token can't be blank")
