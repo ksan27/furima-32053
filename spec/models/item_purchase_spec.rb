@@ -5,6 +5,7 @@ RSpec.describe ItemPurchase, type: :model do
     @item_purchase = FactoryBot.build(:item_purchase)
   end
 
+context '商品購入ができる時' do
   it '必須項目がすべて入力されていれば保存できる' do
     expect(@item_purchase).to be_valid
   end
@@ -12,6 +13,9 @@ RSpec.describe ItemPurchase, type: :model do
     @item_purchase.building_name = nil
     expect(@item_purchase).to be_valid
   end
+end
+
+context '商品購入ができない時' do
   it 'postal_codeが空では保存できない' do
     @item_purchase.postal_code = nil
     @item_purchase.valid?
@@ -37,8 +41,13 @@ RSpec.describe ItemPurchase, type: :model do
     @item_purchase.valid?
     expect(@item_purchase.errors.full_messages).to include("Phone number can't be blank")
   end
-  it 'phone_numberが11桁ではない場合保存できない' do
+  it 'phone_numberが11桁未満の場合保存できない' do
     @item_purchase.phone_number = '080'
+    @item_purchase.valid?
+    expect(@item_purchase.errors.full_messages).to include('Phone number Input only number')
+  end
+  it 'phone_numberが12桁以上の場合保存できない' do
+    @item_purchase.phone_number = '080123456789'
     @item_purchase.valid?
     expect(@item_purchase.errors.full_messages).to include('Phone number Input only number')
   end
@@ -68,4 +77,5 @@ RSpec.describe ItemPurchase, type: :model do
     @item_purchase.valid?
     expect(@item_purchase.errors.full_messages).to include("Token can't be blank")
   end
+end
 end
