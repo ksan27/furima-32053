@@ -13,62 +13,62 @@ RSpec.describe Item, type: :model do
     it 'imageが空では登録できない' do
       @item.image = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Image can't be blank")
+      expect(@item.errors.full_messages).to include("イメージを入力してください")
     end
     it 'nameが空では登録できない' do
       @item.name = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Name can't be blank")
+      expect(@item.errors.full_messages).to include("商品名を入力してください")
     end
     it 'explanationが空では登録できない' do
       @item.explanation = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Explanation can't be blank")
+      expect(@item.errors.full_messages).to include("説明を入力してください")
     end
     it 'category_idがid1の時では登録できない' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Category must be other than 1')
+      expect(@item.errors.full_messages).to include('カテゴリーは1以外の値にしてください')
     end
     it 'status_idがid1の時では登録できない' do
       @item.status_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Status must be other than 1')
+      expect(@item.errors.full_messages).to include('商品の状態は1以外の値にしてください')
     end
     it 'shipping_fee_idがid1の時では登録できない' do
       @item.shipping_fee_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Shipping fee must be other than 1')
+      expect(@item.errors.full_messages).to include('配送料は1以外の値にしてください')
     end
     it 'shipping_prefecture_idがid1の時では登録できない' do
       @item.shipping_prefecture_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Shipping prefecture must be other than 1')
+      expect(@item.errors.full_messages).to include('発送地域は1以外の値にしてください')
     end
     it 'shipping_day_idがid1の時では登録できない' do
       @item.shipping_day_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Shipping day must be other than 1')
+      expect(@item.errors.full_messages).to include('発送日数は1以外の値にしてください')
     end
     it 'priceが空では登録できない' do
       @item.price = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price can't be blank")
+      expect(@item.errors.full_messages).to include("販売価格を入力してください")
     end
     it 'priceが300円以下だと登録できない' do
       @item.price = 299
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price is out of setting range')
+      expect(@item.errors.full_messages).to include('販売価格は範囲外です')
     end
     it 'priceが9999999円以上だと登録できない' do
       @item.price = 10_000_000
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price is out of setting range')
+      expect(@item.errors.full_messages).to include('販売価格は範囲外です')
     end
     it 'priceが全角数字だと登録できない' do
       @item.price = '１２３４５'
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price is invalid. Input half-width characters.')
+      expect(@item.errors.full_messages).to include('販売価格は半角数字で入力してください')
     end
   end
 end
