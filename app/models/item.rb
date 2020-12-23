@@ -22,4 +22,11 @@ class Item < ApplicationRecord
     validates :price, format: { with: /\A\d[0-9]+\z/, message: 'は半角数字で入力してください' }
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は範囲外です' }
   end
+
+  def previous
+    user.items.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
+  end
+  def next
+    user.items.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first
+  end
 end
