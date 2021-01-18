@@ -164,8 +164,8 @@
 
 .comment-btn {
   line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+  background-color: #ffb6c1;
+  border: 1px solid #ffb6c1;
   color: #fff;
   width: 50%;
   min-width: 150px;
@@ -193,13 +193,13 @@
 .change-item-btn {
   font-size: 30px;
   text-decoration: none;
-  color: #3CCACE;
+  color: #ffb6c1;
 }
 
 .another-item {
   display: block;
   margin: 30px 0px 8px;
-  color: #3CCACE;
+  color: #ffb6c1;
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
