@@ -1,4 +1,25 @@
-# README
+# FURIMA
+<img width="1150" alt="furima" src="https://user-images.githubusercontent.com/73518765/104890022-56307880-59b2-11eb-96e0-893e71353a59.png">
+
+### URL
+https://furima-32053.herokuapp.com/
+
+### IDとパスワード
+ID: admin
+<br>password: 2222
+
+### 出品者
+Email: sample@sample.com
+<br>password: aaa111
+
+### 購入者
+Email: sample2@sample.com
+<br>password: aaa111
+
+### テストクレジットカード情報
+番号: 42424242424242
+<br>期限: 3/24
+<br>コード: 123
 
 ## usersテーブル
 
